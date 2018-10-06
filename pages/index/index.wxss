@@ -1,0 +1,98 @@
+.date{
+  font-size: 40rpx;
+  color: white;
+  padding: 0 40rpx;
+  margin: 40rpx 0 0;
+  font-weight: bold;
+
+}
+page{
+  background:#1f4e7d;
+}
+page, view, span, text{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.time-table{
+  margin: 34rpx 19rpx;
+  border-radius: 15rpx;
+  background: white;
+}
+
+.route{
+  height: 141rpx;
+  margin: 0 ;
+  border-bottom: 12rpx solid #f0edeb;
+  padding: 38rpx 0 12rpx 36rpx;
+  color: #465168;
+  font-size: 50rpx;
+  font-weight: bolder;
+}
+.table-row, .table-row-dq{
+  height: 65rpx;
+  padding: 0 35rpx;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #ccc solid 1px;
+}
+.time{
+  display: flex;
+
+}
+.time .text{
+  line-height: 50rpx;
+  padding-left: 16rpx;
+  font-weight: bold;
+}
+
+.count{
+  font-weight: bold;
+}
+
+.table-row-dq{
+  color: #f46625;
+  background: #f8f3ea;
+}
+
+.table-row .time .dot{
+  color: #d9d5d4;
+}
+
+.table-row .time .text, .table-row .count{
+  color: #475268;
+}
+
+.text{
+  font-family:   Courier, monospace;
+  letter-spacing: 0.15em;
+  font-weight: 200;
+}
+
+.bus-remain{
+  height: 70rpx;
+  padding: 0 35rpx;
+  color: #a3a4ae;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.copyright{
+   color: #1f4e7d;
+}
+
+.notice{
+  background: #544 ;
+  color: white;
+  font-size: 25rpx;
+  padding: 10rpx;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+}

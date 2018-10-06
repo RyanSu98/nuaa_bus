@@ -1,0 +1,36 @@
+<picker mode="date" value="{{date}}" start="2018-10-6" end="2018-12-31" bindchange="bindDateChange">
+  <view class='date'>
+    {{date[5]+date[6]}}月{{date[8]+date[9]}}日 | {{date[11]=="0"?"工作日":"节假日"}}
+  </view>
+</picker>
+
+<block wx:for="{{['将军路 > 明故宫','明故宫 > 将军路']}}">
+  <!-- 时间表 -->
+  <view class='time-table'>
+    <!-- 路线 -->
+    <view class='route'>
+      {{item}}
+    </view>
+    <!-- 时间条目 -->
+    <view class='notice' wx:if="{{date[11]=='0' | index==0}}">
+      有橙色标识的喵喵不到东区
+    </view>
+    <block wx:for="{{table_data[date[11]][index]}}">
+      <view class='{{item.dq?"table-row":"table-row-dq"}}'>
+        <view class='time'>
+          <view class='dot'>●</view>
+          <view class='text'>{{item.time}}</view>
+        </view>
+        <view class='count'>
+          {{item.count}} 辆
+        </view>
+      </view>
+    </block>
+    <!-- 剩余车辆 -->
+    <view class='bus-remain'>
+      <view>@瑞辅笔记</view>
+    </view>
+  </view>
+</block>
+
+<view class='copyright'>https://xn--4kro7fswi.xn--6qq986b3xl/</view>
