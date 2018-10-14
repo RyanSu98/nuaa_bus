@@ -56,14 +56,18 @@ page, view, span, text{
 
 .table-row-dq{
   color: #f46625;
-  background: #f8f3ea;
+  /* background: #f8f3ea; */
 }
 
 .table-row .time .dot{
   color: #d9d5d4;
 }
 
-.table-row .time .text, .table-row .count{
+/* .table-row .time .text, .table-row .count{
+  color: #475268;
+} */
+
+.time .text, .count{
   color: #475268;
 }
 
