@@ -1,4 +1,4 @@
-<picker mode="date" value="{{date}}" start="2018-10-5" end="2018-12-31" bindchange="bindDateChange">
+<picker mode="date" value="{{date}}" start="2018-12-1" end="2019-1-15" bindchange="bindDateChange">
   <view class='date'>
     {{time.month}}月{{time.date}}日 | {{time.is_workday?"工作日":"节假日"}}
   </view>

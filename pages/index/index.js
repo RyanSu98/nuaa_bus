@@ -3,8 +3,14 @@ var data = require('./data.js'); // Import data from data.js
 
 // 判断是否是工作日
 var is_workday = function(date){
-  var day = date.getDay()
-  return !(day==0|day==6);
+  var _month = date.getMonth()+1
+  var _date = date.getDate()
+  var _day = date.getDay()
+  // 12.29
+  if (_month == 12 && _date == 29) return true;
+  if (_month == 12 && (_date==30 || _date == 31)) return false;
+  if (_month == 1 && _date == 1) return false;
+  return !(_day==0|_day==6);
 }
 
 // 获取当前时间[月份，日期，是否是节假日]
