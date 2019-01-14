@@ -1,6 +1,6 @@
-<picker mode="date" value="{{date}}" start="2018-12-1" end="2019-1-15" bindchange="bindDateChange">
+<picker mode="date" value="{{date}}" start="2019-1-14" end="2019-1-19" bindchange="bindDateChange">
   <view class='date'>
-    {{time.month}}月{{time.date}}日 | {{time.is_workday?"工作日":"节假日"}}
+    {{time.month}}月{{time.date}}日 | {{time.is_workday?"工作日":"节假日"}} ☜
   </view>
 </picker>
 
@@ -12,7 +12,8 @@
       {{item}}
     </view>
     <!-- 时间条目 -->
-    <view class='notice' wx:if="{{time.is_workday | index==0}}">
+    <!-- <view class='notice' wx:if="{{time.is_workday | index==0}}"> -->
+    <view class='notice' wx:if="{{true}}">
       有橙色标识的喵喵不到东区
     </view>
     <block wx:for="{{bus_time_table[time.is_workday?'workday':'weekend'][index==0?'jjl':'mgg']}}">
