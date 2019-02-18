@@ -1,37 +1,55 @@
-// 引入数据文件
-var data = require('./data.js'); // Import data from data.js
-
-// 判断是否是工作日
-var is_workday = function(date){
-  var _month = date.getMonth()+1
-  var _date = date.getDate()
-  var _day = date.getDay()
-  return !(_day==0|_day==6);
+var setTimeToday = function () {
+  var date_today = new Date()
+  var year = date_today.getFullYear()
+  var month = date_today.getMonth() + 1;
+  var date = date_today.getDate();
+  var date_today_string = year+'-'+month+'-'+date;
+  this.setData({
+    date_today: date_today_string
+  })
+  return date_today_string;
 }
 
-// 获取当前时间[月份，日期，是否是节假日]
-var setTime = function(date=null){
-  var date = date?(new Date(date)):(new Date())
-  var time = {};
-  time.month = date.getMonth() + 1;
-  time.date = date.getDate();
-  time.is_workday = is_workday(date);
-  this.setData({
-    time: time
+var setPageData = function(time=null){
+  wx.showNavigationBarLoading()
+  var that=this
+  that.setData({
+    date_set: time
   })
+  wx.request({
+    url: 'https://api.rvfu98.com/nuaa_bus/?time='+time,
+    success: function(res){
+      that.setData({
+        page_data: res.data
+      })
+    },
+    fail: function(){
+      wx.showModal({
+        title: '数据加载失败',
+        content: '请检查网络配置或i@suruifu.com',
+      })
+      that.setData({
+        page_data: {}
+      })
+    },
+    complete: function(){
+      wx.hideNavigationBarLoading()
+    }
+  })
+  
 }
 
 // 初始化页面
 Page({
-  setTime: setTime,
+  setTimeToday: setTimeToday,
+  setPageData: setPageData,
   data: {
-    time:{},
-    bus_time_table: data.bus_time_table
   },
   onShow: function (options) {
-    var time = this.setTime();
+   var time_today = this.setTimeToday();
+   this.setPageData(time_today)
   },
   bindDateChange: function (e) {
-    var time = this.setTime(e.detail.value);
+    this.setPageData(e.detail.value)
   }
 })

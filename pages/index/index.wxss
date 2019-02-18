@@ -16,7 +16,7 @@ page, view, span, text{
   box-sizing: border-box;
 }
 
-.time-table{
+.time-table, .notice-box{
   margin: 34rpx 19rpx;
   border-radius: 15rpx;
   background: white;
@@ -99,4 +99,10 @@ page, view, span, text{
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.3em;
+}
+
+.notice-box{
+  padding: 0.5em 1em;
+  text-align: center;
+  font-family: sans-serif;
 }

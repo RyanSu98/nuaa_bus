@@ -1,8 +1,12 @@
-<picker mode="date" value="{{date}}" start="2019-1-14" end="2019-1-19" bindchange="bindDateChange">
+<picker mode="date" value="{{date_set}}" start="{{date_today}}" end="2019-12-31" bindchange="bindDateChange">
   <view class='date'>
-    {{time.month}}月{{time.date}}日 | {{time.is_workday?"工作日":"节假日"}} ☜
+    {{page_data.time.month}}月{{page_data.time.date}}日 | {{page_data.time.description}} ☜
   </view>
 </picker>
+
+<view class='notice-box' wx-if="{{page_data.notice[0]}}==''}}">
+  {{page_data.notice[0]}}
+</view>
 
 <block wx:for="{{['将军路 > 明故宫','明故宫 > 将军路']}}">
   <!-- 时间表 -->
@@ -13,10 +17,10 @@
     </view>
     <!-- 时间条目 -->
     <!-- <view class='notice' wx:if="{{time.is_workday | index==0}}"> -->
-    <view class='notice' wx:if="{{true}}">
-      有橙色标识的喵喵不到东区
+    <view class='notice' wx-if="{{page_data.notice[index+1]!=''}}">
+      {{page_data.notice[index+1]}}
     </view>
-    <block wx:for="{{bus_time_table[time.is_workday?'workday':'weekend'][index==0?'jjl':'mgg']}}">
+    <block wx:for="{{page_data.schedule[index==0?'jjl':'mgg']}}">
       <view class='{{item.dq?"table-row":"table-row-dq"}}'>
         <view class='time'>
           <view class='dot'>●</view>
