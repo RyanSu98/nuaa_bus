@@ -1,0 +1,12 @@
+var if_passed = function(date_set, clock_item){
+  var time_item = getDate(date_set + ' ' + clock_item);
+  var time_now = getDate();
+  var diff = time_now - time_item;
+  return diff>3600;
+}
+
+
+// 导出对外暴露的属性
+module.exports = {
+  if_passed: if_passed
+}

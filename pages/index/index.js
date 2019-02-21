@@ -49,6 +49,9 @@ var setPageData = function(time=null){
 Page({
   setTimeToday: setTimeToday,
   setPageData: setPageData,
+  test_func: function(){
+    return 'test';
+  },
   data: {
   },
   onShow: function (options) {
