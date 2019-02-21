@@ -27,6 +27,12 @@ var setPageData = function(time=null){
       wx.showModal({
         title: '数据加载失败',
         content: '请检查网络配置或i@suruifu.com',
+        confirmText: '重试',
+        success: function(res){
+          if (res.confirm){
+            that.setPageData(time)
+          }
+        }
       })
       that.setData({
         page_data: {}
