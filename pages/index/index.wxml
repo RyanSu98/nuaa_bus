@@ -1,6 +1,5 @@
 <wxs module="util" src="./index.wxs">
 </wxs>
-
 <picker mode="date" value="{{date_set}}" start="{{date_today}}" end="2019-12-31" bindchange="bindDateChange">
   <view class='date'>
     {{page_data.time.month}}月{{page_data.time.date}}日 | {{page_data.time.description}} ☜
@@ -8,9 +7,8 @@
 </picker>
 
 <view class='notice-box' wx-if="{{page_data.notice[0]}}==''}}">
-  {{page_data.notice[0]}}
+  {{page_data.notice[0]}} 
 </view>
-
 <block wx:for="{{['将军路 > 明故宫','明故宫 > 将军路']}}">
   <!-- 时间表 -->
   <view class='time-table'>

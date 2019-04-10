@@ -17,7 +17,7 @@ var setPageData = function(time = null) {
     date_set: time
   })
   wx.request({
-    url: 'https://api.rvfu98.com/nuaa_bus/?time=' + time,
+    url: 'https://nuaabus.suruifu.com/miniapp/?time=' + time,
     success: function(res) {
       that.setData({
         page_data: res.data
